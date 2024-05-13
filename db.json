@@ -1,0 +1,106 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "amount": 100,
+      "type": "Expenses",
+      "description": "Restaurant",
+      "category": "Food",
+      "created_at": "2024-01-15T23:00:00"
+    },
+    {
+      "id": 2,
+      "amount": 159,
+      "type": "Expenses",
+      "description": "Gas",
+      "category": "Car",
+      "created_at": "2024-02-12T23:00:00"
+    },
+    {
+      "id": 3,
+      "amount": 500,
+      "type": "Income",
+      "description": "Salary",
+      "category": "",
+      "created_at": "2024-01-15T23:00:00"
+    },
+    {
+      "id": 4,
+      "amount": 99,
+      "type": "Expenses",
+      "description": "Rent",
+      "category": "Housing ",
+      "created_at": "2024-05-10T23:00:00"
+    },
+    {
+      "type": "Expenses",
+      "category": "Food",
+      "amount": 100,
+      "description": "validate",
+      "created_at": "2023-04-15T00:00:00",
+      "id": 5
+    },
+    {
+      "type": "Expenses",
+      "category": "Housing",
+      "amount": 20,
+      "description": "housing Expense",
+      "created_at": "2024-04-13T00:00:00",
+      "id": 6
+    },
+    {
+      "type": "Expenses",
+      "category": "Health",
+      "amount": 222,
+      "description": "health",
+      "created_at": "2023-04-17T00:00:00",
+      "id": 7
+    },
+    {
+      "type": "Expenses",
+      "category": "Health",
+      "amount": 213,
+      "description": "health",
+      "created_at": "2024-04-16T00:00:00",
+      "id": 8
+    },
+    {
+      "type": "Expenses",
+      "category": "Health",
+      "amount": 212,
+      "description": "health",
+      "created_at": "2024-04-15T00:00:00",
+      "id": 9
+    },
+    {
+      "type": "Saving",
+      "category": "Transport",
+      "amount": 121,
+      "description": "transport",
+      "created_at": "2023-04-12T00:00:00",
+      "id": 10
+    }
+  ],
+  "trends": [
+    {
+      "id": "Income",
+      "amount": 4000,
+      "preAmount": 3000
+    },
+    {
+      "id": "Expenses",
+      "amount": 4000,
+      "preAmount": 3000
+    },
+    {
+      "id": "Saving",
+      "amount": 4000,
+      "preAmount": 3000
+    },
+    {
+      "id": "Investment",
+      "amount": 4000,
+      "preAmount": 3000
+    }
+  ]
+}
