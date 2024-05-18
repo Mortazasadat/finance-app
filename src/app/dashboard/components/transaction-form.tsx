@@ -24,15 +24,18 @@ const TransactionForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
+    setValue,
     formState: { errors },
   } = useForm<Inputs>({
     mode: "onTouched",
-    // resolver: zodResolver(transactionSchema),
+    resolver: zodResolver(transactionSchema),
   });
 
   const [isSaving, setIsSaving] = useState(false);
   const [lastError, setLastError] = useState("");
   const router = useRouter();
+  const type = watch("type");
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setIsSaving(true);
@@ -62,7 +65,15 @@ const TransactionForm = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
           <Label className="mb-1">Type</Label>
-          <Select {...register("type")}>
+          <Select
+            {...register("type", {
+              onChange: (e) => {
+                if (e.target.value !== "Expenses") {
+                  setValue("category", "");
+                }
+              },
+            })}
+          >
             {types.map((type) => (
               <option key={type} value={type}>
                 {type}{" "}
@@ -74,7 +85,8 @@ const TransactionForm = () => {
         </div>
         <div>
           <Label className="mb-1">Category</Label>
-          <Select {...register("category")}>
+          <Select {...register("category")} disabled={type !== "Expenses"}>
+            <option value="">Select a category</option>
             {categories.map((type) => (
               <option key={type} value={type}>
                 {type}{" "}

@@ -84,22 +84,22 @@
   "trends": [
     {
       "id": "Income",
-      "amount": 4000,
-      "preAmount": 3000
+      "amount": 7020,
+      "preAmount": 1000
     },
     {
       "id": "Expenses",
       "amount": 4000,
-      "preAmount": 3000
+      "preAmount": 100
     },
     {
       "id": "Saving",
-      "amount": 4000,
+      "amount": 4300,
       "preAmount": 3000
     },
     {
       "id": "Investment",
-      "amount": 4000,
+      "amount": 4020,
       "preAmount": 3000
     }
   ]
