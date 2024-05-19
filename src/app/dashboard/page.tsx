@@ -9,14 +9,19 @@ import { sizes, variants } from "../../../lib/variants";
 import { createClient } from "../../../lib/supabase/server";
 import { types } from "../../../lib/consts";
 import { ErrorBoundary } from "react-error-boundary";
+import { Range } from "./components/range";
 
-export default async function DashboardPage() {
+export default async function DashboardPage({ searchParams }: any) {
+  const range = searchParams?.range ?? "last30days";
   const client = createClient();
 
   return (
     <>
-      <section className="mb-8">
+      <section className="mb-8 flex justify-between items-center">
         <h1 className="text-4xl font-semibold">Summary</h1>
+        <div>
+          <Range />
+        </div>
       </section>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-4">
         {types.map((type) => (
@@ -29,7 +34,7 @@ export default async function DashboardPage() {
             }
           >
             <Suspense fallback={<TrendFallback />}>
-              <TrendDashboard type={type} />
+              <TrendDashboard range={range} type={type} />
             </Suspense>
           </ErrorBoundary>
         ))}
