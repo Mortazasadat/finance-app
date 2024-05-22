@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import TransactionList from "./components/TransactionList";
 import TransactionListFallback from "./components/TransactionList-Fallback";
 import { TrendDashboard } from "./components/Trend";
 import { TrendFallback } from "./components/Trend-Fallback";
@@ -10,13 +9,13 @@ import { createClient } from "../../../lib/supabase/server";
 import { types } from "../../../lib/consts";
 import { ErrorBoundary } from "react-error-boundary";
 import { Range } from "./components/range";
+import TransactionListWrapper from "./components/transaction-list-wrapper";
 
 export default async function DashboardPage({ searchParams }: any) {
   const range = searchParams?.range ?? "last30days";
-  const client = createClient();
 
   return (
-    <>
+    <div>
       <section className="mb-8 flex justify-between items-center">
         <h1 className="text-4xl font-semibold">Summary</h1>
         <div>
@@ -50,8 +49,8 @@ export default async function DashboardPage({ searchParams }: any) {
         </Link>
       </section>
       <Suspense fallback={<TransactionListFallback />}>
-        <TransactionList />
+        <TransactionListWrapper range={range} />
       </Suspense>
-    </>
+    </div>
   );
 }

@@ -35,3 +35,14 @@ export async function CreateTransaction(formData: Inputs) {
 
   revalidatePath("/dashboard");
 }
+
+export async function fetchTransactions(range: string, offset = 0, limit = 10) {
+  const supabase = createClient();
+  let { data, error } = await supabase.rpc("fetch_transactions", {
+    // limit_arg: string,
+    // offset_arg: number,
+    range_arg: range,
+  });
+  if (error) throw new Error("we can't fetch transactions");
+  return data;
+}
